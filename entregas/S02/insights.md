@@ -1,0 +1,7 @@
+## Parte 4 · 3 Insights (anclados en la evidencia)
+
+1. **Marlon** necesita **ver, sin digitar nada a mano, cuánto gasta en efectivo cada mes**, porque hoy su presupuesto solo cubre lo fijo (tarjeta y transferencias) y lo variable en efectivo desaparece de su radar, y hoy lo resuelve con **guardar recibos en un sobre y revisar el estado de cuenta "por encima" una vez al mes**, que le falla en que **no captura el gasto en efectivo ni le da una cifra real de cuánto está ahorrando la familia**.
+
+2. **Marlon y su esposa** necesitan **una vista conjunta de cuánto están ahorrando entre los dos**, porque hoy cada quien ve su propia cuenta por separado y ninguno tiene la foto completa, y hoy lo resuelven con **no resolverlo — cada quien revisa su lado por su cuenta**, que les falla en que **un imprevisto (como la reparación del carro) los obliga a tocar el ahorro sin haber podido anticiparlo entre los dos**.
+
+3. **Javier** necesita **separar automáticamente el dinero comprometido (para su mamá, celular, ahorro de la universidad) del dinero que realmente puede gastar libre en la quincena**, porque ha gasta la primera semana "como si no hubiera segunda semana" y termina raspando o pidiendo prestado, y hoy lo resuelve con **pagar primero lo fijo y gastar el resto sin llevarle la cuenta**, que le falla en que **no hay ninguna barrera en su gasto libre, así que termina tocando ese ahorro cada vez que un imprevisto lo deja corto**.

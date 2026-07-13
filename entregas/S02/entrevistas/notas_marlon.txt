@@ -1,0 +1,32 @@
+P1. La última entrada de dinero
+El día 30 se deposita el salario. Ese mismo día se transfiere automáticamente una parte al ahorro programado del banco y el resto se queda en la cuenta de gastos.
+
+P2. Disponibilidad de saldo actual
+Se revisa mediante la aplicación del banco, pero allí solo se refleja lo pagado con tarjeta o transferencia. Los gastos en efectivo realizados en la calle suelen olvidarse con facilidad.
+
+P3. La última vez que faltó dinero
+El mes pasado, alrededor del día 25, ya no quedaba margen debido a una reparación costosa e imprevista del aire acondicionado del carro. Fue necesario mover dinero del fondo de ahorro para poder cubrirlo.
+
+P4. Causas del desajuste financiero
+Se presupuestan únicamente los gastos fijos (luz, colegiatura, cuota del carro), pero no se contempla un colchón para imprevistos. Existe la falsa percepción de que "este mes no pasará nada", aunque siempre surge algún contratiempo.
+
+P5. Obstáculos para llevar un registro detallado
+La falta de tiempo por la rutina laboral y el cuidado de los niños impide sentarse a registrar gastos. Además, al compartir la cuenta con la esposa, ambos realizan consumos y en ocasiones pierden el rastro de lo que el otro ha comprado.
+
+P6. Métodos intentados en el pasado
+Se utilizó una hoja de Excel durante un par de meses estructurada con categorías. Sin embargo, el proceso se volvió complejo y tedioso al tener que ingresar cada recibo de forma manual, lo que llevó a abandonar la herramienta.
+
+P7. Gestión financiera actual
+Comportamiento clave: Actualmente se guardan los recibos importantes en un sobre y, al final de cada mes, se realiza una revisión superficial del estado de cuenta bancario.
+
+P8. Gastos sorpresivos del mes en curso
+La renovación del seguro del carro tomó por sorpresa este mes por falta de recordatorio. Estuvo a punto de vencerse la fecha límite de pago.
+
+P9. Preocupaciones latentes
+Existe una preocupación real por no saber con certeza cuánto se está ahorrando a nivel familiar. Al gestionar las finanzas de manera individual (cada uno por su lado), se carece de una visión global y unificada de la economía del hogar.
+
+P10. Definición de éxito para el próximo mes
+Lograr que cualquier imprevisto se pueda solventar sin necesidad de tocar el fondo de ahorro. Asimismo, poder visualizar de forma automatizada y sin cálculos manuales el total ahorrado entre ambos miembros de la pareja.
+
+Conclusión y cierre
+El problema principal no está en la falta de ingresos, sino en el manejo claro del destino del dinero, especialmente en los gastos compartidos del hogar.
