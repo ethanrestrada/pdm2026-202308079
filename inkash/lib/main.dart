@@ -4,6 +4,17 @@ void main() {
   runApp(const MyApp());
 }
 
+// Paleta del design system del prototipo (broadsheet dark):
+const kFondo = Color(0xFF0E120C);
+const kSuperficie = Color(0xFF181E14);
+const kBorde = Color(0xFF2A3222);
+const kTexto = Color(0xFFF1F4EA);
+const kMuted = Color(0xFF8F9C80);
+const kLima = Color(0xFFC8F54E); // --color-accent
+const kIconoFondo = Color(0xFF37491C); // --color-accent-300
+
+const kFig = TextStyle(fontFamily: 'monospace'); // cifras (Azeret Mono)
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -12,7 +23,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Inkash',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: kFondo,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: kLima,
+          brightness: Brightness.dark,
+        ),
+      ),
       home: Scaffold(
         body: SafeArea(
           child: ListView(
@@ -20,17 +38,34 @@ class MyApp extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text('Hola, Kevin'), Text('Julio 2026')],
+                children: [
+                  Text('Hola, Kevin'),
+                  Text('Julio 2026', style: TextStyle(color: kMuted)),
+                ],
               ),
               const SizedBox(height: 22),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
-                  Text('TE QUEDAN DISPONIBLES', style: TextStyle(fontSize: 11)),
-                  SizedBox(height: 6),
-                  Text('Q2,796.50', style: TextStyle(fontSize: 52)),
+                  Text(
+                    'TE QUEDAN DISPONIBLES',
+                    style: TextStyle(fontSize: 11, color: kLima),
+                  ),
+                  Text(
+                    'Q2,796.50',
+                    style: TextStyle(
+                      fontSize: 52,
+                      color: kTexto,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                   SizedBox(height: 16),
-                  LinearProgressIndicator(value: 0.57),
+                  LinearProgressIndicator(
+                    value: 0.57,
+                    color: kLima,
+                    minHeight: 8.0,
+                    // backgroundColor: Colors.blue,
+                  ),
                   SizedBox(height: 7),
                   Text(
                     'Has usado Q3,703.50 de Q6,500.00',
@@ -38,192 +73,146 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 22),
               Row(
                 children: [
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 4,
-                            offset: Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "Cuentas",
-                            style: TextStyle(fontSize: 14, color: Colors.grey),
-                          ),
-                          const SizedBox(height: 4),
-                          const Text(
-                            "Q7,100.00",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  tarjetaHero('Cuentas', 'Q7,810.00'),
                   const SizedBox(width: 12),
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 4,
-                            offset: Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "Metas de ahorro",
-                            style: TextStyle(fontSize: 14, color: Colors.grey),
-                          ),
-                          const SizedBox(height: 4),
-                          const Text(
-                            "3 activas",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
+                  tarjetaHero('Metas de ahorro', '3 activas'),
+                ],
+              ),
+              const SizedBox(height: 28),
+              Row(
+                children: [
+                  Text('Últimos movimientos', style: TextStyle(fontSize: 20)),
+                  Spacer(),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Ver todo',
+                      style: TextStyle(fontSize: 13, color: kLima),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: .spaceBetween,
-                    crossAxisAlignment: .center,
-                    children: [
-                      Text(
-                        "Últimos movimientos",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "Ver todo",
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+              filaMovimiento(
+                icon: Icons.directions_bus,
+                title: 'Uber al trabajo',
+                subtitle: 'Transporte · Tarjeta',
+                amount: '− Q38.00',
+                date: 'Hoy',
+              ),
+              filaMovimiento(
+                icon: Icons.shopping_cart,
+                title: 'Súper La Torre',
+                subtitle: 'Súper y comida · Tarjeta',
+                amount: '− Q285.50',
+                date: 'Ayer',
+              ),
+              filaMovimiento(
+                icon: Icons.arrow_upward,
+                title: 'Salario quincena',
+                subtitle: 'Ingreso · Banco',
+                amount: '+ Q4,200.00',
+                date: 'Ayer',
+                isIncome: true,
+              ),
+              filaMovimiento(
+                icon: Icons.local_cafe,
+                title: 'Café con Ana',
+                subtitle: 'Entretenimiento · Efectivo',
+                amount: '− Q65.00',
+                date: 'Ayer',
+              ),
+              filaMovimiento(
+                icon: Icons.bolt,
+                title: 'Recibo de luz (EEGSA)',
+                subtitle: 'Servicios · Banco',
+                amount: '− Q420.00',
+                date: 'Lun 20',
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 0,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: kLima,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.bar_chart),
+              label: 'Presupuesto',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_circle, size: 34),
+              label: 'Agregar',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list_alt),
+              label: 'Historial',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Ajustes',
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
     );
   }
+}
+
+Widget filaMovimiento({
+  required IconData icon,
+  required String title,
+  required String subtitle,
+  required String amount,
+  required String date,
+  bool isIncome = false,
+}) {
+  return ListTile(
+    leading: Container(
+      width: 40,
+      height: 40,
+      decoration: BoxDecoration(
+        color: kIconoFondo,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Icon(icon, color: kLima),
+    ),
+    title: Text(title, style: TextStyle(color: kTexto)),
+    subtitle: Text(subtitle, style: TextStyle(color: kMuted)),
+    trailing: Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Text(
+          amount,
+          style: TextStyle(fontSize: 13, color: isIncome ? kLima : kTexto),
+        ),
+        Text(date, style: TextStyle(fontSize: 10, color: kMuted)),
+      ],
+    ),
+  );
+}
+
+Widget tarjetaHero(String title, String body) {
+  return Expanded(
+    child: Container(
+      decoration: BoxDecoration(
+        color: kSuperficie,
+        borderRadius: BorderRadius.circular(15),
+        border: Border.all(color: kBorde),
+      ),
+      padding: const EdgeInsets.all(14),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title, style: TextStyle(fontSize: 11, color: kMuted)),
+          SizedBox(height: 2),
+          Text(body, style: TextStyle(fontSize: 19)),
+        ],
+      ),
+    ),
+  );
 }
