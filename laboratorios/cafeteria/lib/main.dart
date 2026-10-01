@@ -40,7 +40,28 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(),
+      body: SafeArea(child: Padding(padding: const EdgeInsets.all(16))),
     );
+  }
+}
+
+class ProductoPedido extends StatelessWidget {
+  const ProductoPedido({
+    super.key,
+    required this.nombre,
+    required this.precio,
+    required this.cantidad,
+  });
+
+  final String nombre;
+  final int precio;
+  final int cantidad;
+
+  @override
+  Widget build(BuildContext context) {
+    return (Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: (Row(children: [])),
+    ));
   }
 }
