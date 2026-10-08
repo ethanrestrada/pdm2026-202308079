@@ -40,7 +40,51 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: SafeArea(child: Padding(padding: const EdgeInsets.all(16))),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView(
+                  children: [
+                    ProductoPedido(
+                      nombre: 'Cafe',
+                      precio: 10,
+                      cantidad: cafes,
+                      alSumar: () => setState(() => cafes++),
+                      alRestar: () {
+                        if (cafes > 0) setState(() => cafes--);
+                      },
+                    ),
+                    const Divider(),
+                    ProductoPedido(
+                      nombre: 'Sandwich',
+                      precio: 25,
+                      cantidad: sandwiches,
+                      alSumar: () => setState(() => sandwiches++),
+                      alRestar: () {
+                        if (sandwiches > 0) setState(() => sandwiches--);
+                      },
+                    ),
+                    const Divider(),
+                    ProductoPedido(
+                      nombre: 'Jugo',
+                      precio: 12,
+                      cantidad: jugos,
+                      alSumar: () => setState(() => jugos++),
+                      alRestar: () {
+                        if (jugos > 0) setState(() => jugos--);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              const Divider(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
