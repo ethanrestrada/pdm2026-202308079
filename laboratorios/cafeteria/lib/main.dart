@@ -51,17 +51,47 @@ class ProductoPedido extends StatelessWidget {
     required this.nombre,
     required this.precio,
     required this.cantidad,
+    required this.alSumar,
+    required this.alRestar,
   });
 
   final String nombre;
   final int precio;
   final int cantidad;
+  final VoidCallback alSumar;
+  final VoidCallback alRestar;
 
   @override
   Widget build(BuildContext context) {
-    return (Padding(
+    return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
-      child: (Row(children: [])),
-    ));
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(nombre, style: const TextStyle(fontSize: 18)),
+                Text('Q${precio.toStringAsFixed(2)}'),
+              ],
+            ),
+          ),
+          IconButton(
+            onPressed: alRestar,
+            icon: const Icon(Icons.remove),
+            tooltip: 'Restar 1 $nombre',
+          ),
+          SizedBox(
+            width: 32,
+            child: Text('$cantidad', textAlign: TextAlign.center),
+          ),
+          IconButton(
+            onPressed: alSumar,
+            icon: const Icon(Icons.add),
+            tooltip: 'Sumar 1 $nombre',
+          ),
+        ],
+      ),
+    );
   }
 }
